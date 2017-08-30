@@ -12,7 +12,6 @@
 __pycache__
 developer
 data/labels
-app/static/images
 app/static/bounding_boxes
 app/static/yolo_detections
 app/static/uploads
