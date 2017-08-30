@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="jumbotron">
+		<h3 class="display-4"> Choose example room from the gallery </h3>
+		<p>We will detect objects in the photo and look for similar ones in our database.</p>
+	</div>
+
+
+
+	{% for image_row in images | batch(4, '&nbsp;') %}
+		<div class ="row row-vertical">
+			 {% for image in image_row %}
+				<div class="col-lg-3 col-md-3 col-xs-3">
+				<form action="/gallery_uploader" method="POST" enctype="multipart/form-data">
+
+				<div class="form-group">
+					<input type="hidden" name="filename" value="{{ image.src }}"/> 
+					<input type="image" class="img-thumbnail" src="{{ image.src }}"/>
+					<input type="hidden" name="gallery_type" value="scene" />
+					<input type="hidden" id="querybox" name="query">
+				</div>
+
+				</form>
+				</div>
+			{% endfor %}
+		</div>			
+	{% endfor %}
+
+<!-- <div class="grid">
+			 {% for image in images %}
+				<div class="grid-item">
+					<form action="/gallery_uploader" method="POST" enctype="multipart/form-data">
+
+					<div class="form-group">
+						<input type="hidden" name="filename" value="{{ image.src }}"/> 
+						<input type="image" class="img-thumbnail" src="{{ image.src }}"/>
+						<input type="hidden" name="gallery_type" value="scene" />
+						<input type="hidden" id="querybox" name="query">
+					</div>
+
+				</form>
+				</div>
+			{% endfor %}
+</div> -->
+
+
+
+</div>
+
+{% endblock %}

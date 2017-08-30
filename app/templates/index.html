@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1> {{ header }} </h1>
+	{% for product in product_pictures %}
+		<div><p>
+				<img src= "static/images/product/{{ product.filename }}" width = "250">
+			</p>
+		</div>
+	{% endfor %}
+{% endblock %}

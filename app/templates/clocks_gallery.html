@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+		<div class="jumbotron">
+			<h3 class="display-4"> Choose a wall clock from the gallery </h3>
+		</div>
+
+
+<div class="row row-match-my-cols">
+
+	{% for image in images %}
+		<div class="col-lg-2 col-md-3 col-xs-4">
+			<div>
+
+			<form action="/gallery_uploader" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="filename" value="{{ image.src }}" /> 
+			<input type="image" class="img-thumbnail" src="{{ image.src }}"/>
+			<input type="hidden" name="gallery_type" value="clocks" />
+			</form>
+
+			</div>
+		</div>
+			
+	{% endfor %}
+
+</div>
+
+</div>
+
+{% endblock %}

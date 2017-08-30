@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="jumbotron">
+		<!-- <h4 class="display-4">We have found some objects in this room!</h4> -->
+		<h4>Sorry, we did not find any interesting furniture objects in this image</h4>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-12 col-lg-12">
+			<h6>Upload a different picture or choose from gallery</h6>
+			<p>
+
+				<img src= "{{query_image}}" id="detections_img" class="big-image" style=" max-height: 700px; display: block;
+  margin: auto;">
+				
+			</p>
+		</div>
+
+	</div>
+
+
+
+	</div>
+</div>
+
+{% endblock %}
+

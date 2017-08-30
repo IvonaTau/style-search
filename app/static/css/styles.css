@@ -1,0 +1,41 @@
+
+.row.match-my-cols {
+	overflow:hidden;
+}
+
+.row.match-my-cols [class*="col-"]{
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+}
+
+.pull-right {
+	float: right;
+}
+
+.grid {
+  background: #DDD;
+  max-width: 1200px;
+}
+
+.grid-item {
+  float: left;
+  width: 100px;
+  height: 200px;
+  background: #DDD;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.row-vertical {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.big-image {
+  display: block;
+  margin: auto;
+  max-width : 600px;
+  max-height: 600px; 
+}
+

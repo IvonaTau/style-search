@@ -1,0 +1,6 @@
+{
+    "backend": "theano",
+    "image_dim_ordering": "th",
+    "floatx": "float32",
+    "epsilon": 1e-07
+}

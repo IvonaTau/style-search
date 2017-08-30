@@ -1,0 +1,166 @@
+<html lang="en">
+	<head>
+	<title>Style Search</title>
+
+	<!-- Bootstrap CSS-->
+	<link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
+
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Tether JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap JS-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<!-- Bootstrap toggle-->
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+	<!-- jCrop -->
+	<script src="http://jcrop-cdn.tapmodo.com/v0.9.12/js/jquery.Jcrop.min.js"></script>
+
+	<!-- Isotope - arrange columns -->
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+	<script src="/static/js/fit-columns.js"></script>
+
+	<!-- My styles -->
+	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+	<link href="/static/css/styles.css" rel="stylesheet">
+
+	
+	
+
+	<script type="text/javascript">
+  	jQuery(function($){
+
+    var api;
+
+
+    $("#uploaded_file").change(function(){
+    	$('#target').hide();
+    	var reader = new FileReader();
+    	reader.onload = function(e) {
+    		$('#target').show();
+    		$('#target').attr("src", e.target.result);
+    		// $('#target').Jcrop({
+    		// 	onChange: showCoords,
+    		// 	onSelect: showCoords,
+    		// 	bgOpacity: 0.4,
+      // 			bgColor: 'white',
+      // 			addClass: 'jcrop-light',
+      // 			minSize: [150, 150]
+      // 			 },function(){
+     	// 			api = this;
+     	// 			api.setSelect([130,65,130+350,65+285]);
+      // 				api.setOptions({ bgFade: true });
+      // 				api.ui.selection.addClass('jcrop-selection');
+    		// 	});
+    	}
+    	reader.readAsDataURL($(this)[0].files[0]);
+    });
+
+
+    $(document).ready(function(){
+
+    	$('#detections_img').click(function(e){
+        	var offset = $(this).offset();
+    		document.updateobject_form.form_x.value = e.pageX - offset.left;
+    		document.updateobject_form.form_y.value = e.pageY - offset.top;
+    		document.updateobject_form.width.value = $(this).width();
+
+    	});
+
+    	// $('#upload_form').on('submit', function(e) { 
+    	// 	$('.sk-cube-grid').show();
+    	// });
+
+
+    });
+
+ //   	var $grid = $('.grid').isotope({
+ //  	itemSelector: '.grid-item',
+ //  	packery: {
+ //    columnWidth: 100
+ //  	}	
+	// });
+
+ //    $grid.imagesLoaded().progress( function() {
+ // 		 $grid.isotope('layout');
+	// });
+
+
+    
+  	});
+
+
+  	 function showCoords(c)
+  {
+    $('#x1').val(c.x);
+    $('#y1').val(c.y);
+    $('#x2').val(c.x2);
+    $('#y2').val(c.y2);
+    $('#w').val(c.w);
+    $('#h').val(c.h);
+  }
+
+
+	</script>
+
+	<link rel="stylesheet" href="http://jcrop-cdn.tapmodo.com/v0.9.12/css/jquery.Jcrop.css" type="text/css" />
+	
+
+
+	</head>
+	<body>
+		<div class = "container">
+
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+     	 				<a class="navbar-brand" href="#">Style Search Engine <small class="text-muted">for interior design</small></a>
+     	 			</div>
+
+<!--      	 			<ul class="nav navbar-nav navbar-right">
+     	 					<a class="btn btn-default navbar-btn" href="/about" > About</a>
+     	 			</ul> -->
+     	 			
+     	 		</div>
+			</nav>
+
+		
+			<ul class="nav nav-tabs">
+				<li class="nav-item active">
+					<a class="nav-link active" href="/scene_gallery">Choose from gallery</a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link active" href="/upload_image">Upload your own image</a>
+				</li>
+				
+
+
+				<!-- <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Choose from gallery</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="/clocks_gallery">Wall clocks</a>
+							<a class="dropdown-item" href="/scene_gallery">Design ideas</a>
+						</div>
+				</li> -->
+				
+			</ul>
+
+			<div class = "row">
+				<div class ="span12">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+
+
+</html>

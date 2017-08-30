@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="jumbotron">
+		<h4 class="display-4">Searching for <span style="color: {{object_color}}">{{object_class}}</span> from image</h4>
+
+	<div class="row">
+		<div class="col-xs-12 col-md-8 col-lg-8">
+			<h6>Click on furniture objects</h6>
+			<p>
+				<form action="/update_object" name="updateobject_form" method="POST" enctype="multipart/form-data" runat="server">
+				<div class="form-group">
+				<input type ="image" src= "{{query_image}}" id="detections_img" style="max-height: 500px; max-width : 600px" >
+				<input type="hidden" name="form_x" size="4" />
+				<input type="hidden" name="form_y" size="4" />
+				<input type="hidden" name="width" size="4" />
+				<input type="hidden" name="query_image" value="{{query_image}}"/>
+				<!-- <input type="hidden" name="text_query" value="{{text_query}}"/> -->
+				<input type="hidden" name="object_image" value="{{object_image}}"/>
+				<input type="hidden" name="object_class" value="{{object_class}}"/>
+				<input type="hidden" name="result_images" value="{{result_images}}" >
+				</div>
+				</form>
+			</p>
+		</div>
+		<div class="col-xs-12 col-md-4 col-lg4">
+			<h4>Your query:</h4>
+			<p><img src= "{{object_image}}" style="max-width : 300px" ></p>
+		</div>
+	</div>
+<!-- 	<div class="row">
+	<h3>{{text_query}}</h3>
+	</div> -->
+
+	<div class="row">
+		<form action="/update_text" method="POST" enctype="multipart/form-data" runat="server">
+		<div class="form-group">
+	        <h4>Now add a text description to get closer to what you are looking for</h4>
+	         <input type="text" id="querybox"  name="query" class="form-control" 
+	                    placeholder="e.g. comfortable, light, elegant, family" required autofocus>
+	         <input type="hidden" name="query_image" value="{{query_image}}"/>
+	         <input type="hidden" name="object_image" value="{{object_image}}"/>
+	         <input type="hidden" name="object_class" value="{{object_class}}"/>
+	         	<input type="hidden" name="result_images" value="{{result_images}}" >
+    	</div>
+    	<div class="form-group">
+				<p><input type = "submit" class="btn btn-primary btn-lg" /></p>
+			</div>
+    	</form>
+	</div>
+	
+
+	<div class="row">
+		<h4> Looking for that <span style="color: {{object_color}}">{{object_class}}</span> and other <a class="active">{{text_query}}</a>  objects that would look nice together: </h4>
+		{% for image in result_blend %}
+		<div class="col-xs-6 col-md-2 col-lg-2">
+			<img class="img-thumbnail" src = "{{image}}">
+		</div>
+		{% endfor %}
+	</div>
+
+
+	</div>
+</div>
+
+{% endblock %}
+

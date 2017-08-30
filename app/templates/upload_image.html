@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="jumbotron">
+	<h3> Upload your own image </h3>
+	<p> Upload a custom picture of interior scene - kitchen, living room, bedroom, etc. We will detect objects in your photo and look for similar ones in our database. </p>
+		<form action="/uploader" id="upload_form" method="POST" enctype="multipart/form-data" runat="server">
+			
+			<div class="form-group">
+				<label for="InputPicture">Select image</label>
+				<input type = "file" id="uploaded_file" class="form-control-file" name = "file" />
+				<small id="fileHelp" class="form-text text-muted">Allowed formats: .jpg, .jpeg, .png, .gif</small>
+			</div>
+
+
+    		<input type="hidden" size="4" id="x1" name="x1" />
+    		<input type="hidden" size="4" id="y1" name="y1" />
+    		<input type="hidden" size="4" id="x2" name="x2" />
+    		<input type="hidden" size="4" id="y2" name="y2" />
+    		<input type="hidden" size="4" id="w" name="w" />
+    		<input type="hidden" size="4" id="h" name="h" />
+    	
+    		<div class="form-group">
+    		<img class=".img-responsive" src="/static/images/placeholder1.jpg" id="target" style="max-width: 100%"">
+    		</div>
+
+    		<input type="hidden" id="querybox" name="query">
+
+<!--     		<div class="form-group">
+	             <h3>Add custom text</h3>
+	             <input type="text" id="querybox"  name="query" class="form-control" 
+	                    placeholder="Please enter your query" required autofocus>
+
+    		</div> -->
+<!-- 
+    		<div class="form-group">
+				<label for="searchType"> Search for design inspirations</label>
+				<input type = "checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-size="small" name = "scene" />
+			</div> -->
+
+    		<div class="form-group">
+				<p><input type = "submit" id="upload_button" class="btn btn-primary btn-lg" /> 
+				</p>
+
+			</div>
+
+ 
+
+
+
+		</form>
+
+		
+
+
+</div>
+
+<div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    	</div>
+   
+
+</div>
+
+{% endblock %}
