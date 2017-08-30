@@ -1,6 +1,4 @@
 *.swp
-*.jpg
-*.png
 .DS_Store
 *.log
 *.pyc
