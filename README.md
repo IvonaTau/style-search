@@ -2,12 +2,26 @@
 
 ### What is this repository for? ###
 
+* Code suplementing FEDCSIS MIDI 2017 paper ["What Looks Good with my Sofa: Multimodal Search Engine for Interior Design"](https://arxiv.org/abs/1707.06907) by Ivona Tautkute, Aleksandra Możejko, Wojciech Stokowiec, Tomasz Trzciński, Łukasz Brocki and Krzysztof Marasek
 * Visual/textual search blend demo version
 
 ### Dependencies ###
 
 * Installation of Open CV 2
 * Python 3
+
+### Installation ###
+
+## Docker
+
+* Build docker container `docker build -t container-name .`
+* Run on port 3000 `docker run -p 3000:3000 -it container-name`
+
+## Locally
+
+* Download YOLO weights (https://drive.google.com/open?id=0BywyiovWX-UkeGNxdkxKdDMtdDg)
+* Install Open CV and requirements from `requirements.txt`
+* Run the app `python3 run.py`
 
 ### Web app ###
 * Start on localhost by running run.py
