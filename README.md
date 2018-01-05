@@ -3,7 +3,22 @@
 ### What is this repository for? ###
 
 * Code suplementing FEDCSIS MIDI 2017 paper ["What Looks Good with my Sofa: Multimodal Search Engine for Interior Design"](https://arxiv.org/abs/1707.06907) by Ivona Tautkute, Aleksandra Możejko, Wojciech Stokowiec, Tomasz Trzciński, Łukasz Brocki and Krzysztof Marasek
-* Visual/textual search blend demo version
+
+```
+@inproceedings{FedCSIS201756,
+	author={Ivona Tautkute and Aleksandra Możejko and Wojciech Stokowiec and Tomasz Trzciński and Łukasz Brocki and Krzysztof Marasek,},
+	pages={1275--1282},
+	title={What Looks Good with my Sofa: Multimodal Search Engine for Interior Design},
+	booktitle={Proceedings of the 2017 Federated Conference on Computer Science and Information Systems},
+	year={2017},
+	editor={M. Ganzha and L. Maciaszek and M. Paprzycki},
+	publisher={IEEE},
+	doi={10.15439/2017F56},
+	url={http://dx.doi.org/10.15439/2017F56},
+	volume={11},
+	series={Annals of Computer Science and Information Systems}
+}
+```  
 
 ## Dependencies ##
 
